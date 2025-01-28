@@ -29,9 +29,12 @@ class MainBanner:
                 # if slide_id == 5:
                 #     break
 
-            except:
-                raise ElementNotFoundException(f'No banner is found based on the id {slide_id} ')
-
+            # except:
+            #     raise ElementNotFoundException(f'No banner is found based on the id {slide_id} ')
+            except ElementNotFoundException:
+                print(f'No banner is found based on the id {slide_id}')
+            except Exception as e:
+                print(f'The Exception is {e}')
 
     def navigate_to_home(self):
             self.wrapper_obj.click_on_element(('xpath', '//a[@aria-label="PlayStation.com"]'))
